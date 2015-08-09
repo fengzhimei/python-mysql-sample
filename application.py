@@ -28,7 +28,16 @@ class Storage():
 
   def populate(self):
     cur = self.db.cursor()
-    cur.execute("INSERT INTO scores(score) VALUES(1234)")
+    sql = "INSERT INTO scores(score) VALUES(1234)"
+
+    try:
+      # 执行SQL语句
+      cursor.execute(sql)
+      # 向数据库提交
+      db.commit()
+    except:
+      # 发生错误时回滚
+      db.rollback()
 
   def score(self):
     cur = self.db.cursor()

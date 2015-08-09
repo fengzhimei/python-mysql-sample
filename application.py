@@ -31,12 +31,11 @@ class Storage():
     sql = "INSERT INTO scores(score) VALUES(1234)"
 
     try:
-      # 执行SQL语句
+      # execute SQL inside a transaction
       cur.execute(sql)
-      # 向数据库提交
       self.db.commit()
     except:
-      # 发生错误时回滚
+      # rollback if neccessary
       self.db.rollback()
 
   def score(self):

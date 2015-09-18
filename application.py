@@ -7,6 +7,10 @@ application.debug = True
 
 @application.route('/')
 def hello_world():
+  return "Hello world!"
+
+@application.route('/score')
+def score():
   storage = Storage()
   storage.populate()
   score = storage.score()

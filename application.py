@@ -8,7 +8,7 @@ application.debug = True
 @application.route('/')
 def hello_world():
   print 'Hello World'
-  return "Hello world!"
+  return "Hello world v3!"
 
 @application.route('/score')
 def score():

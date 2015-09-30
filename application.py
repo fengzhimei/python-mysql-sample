@@ -7,6 +7,7 @@ application.debug = True
 
 @application.route('/')
 def hello_world():
+  print 'Hello World'
   return "Hello world!"
 
 @application.route('/score')
@@ -49,4 +50,5 @@ class Storage():
     return row[0]
 
 if __name__ == "__main__":
+  print 'Listening on port 3000...'
   application.run(host='0.0.0.0', port=3000)

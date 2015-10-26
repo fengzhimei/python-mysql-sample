@@ -9,6 +9,14 @@ application.debug = True
 def hello_world():
   return "Hello world!"
 
+@application.route('/env')
+def env():
+  envs = "Environments: \n"
+  for key in os.environ.keys():
+    envs = envs + "%20s %s\n" % (key,os.environ[key])
+
+  return envs
+
 @application.route('/score')
 def score():
   storage = Storage()

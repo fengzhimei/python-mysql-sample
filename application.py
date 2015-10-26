@@ -13,7 +13,7 @@ def hello_world():
 def env():
   envs = "Environments: <br>"
   for key in os.environ.keys():
-    envs = envs + "%s -- %s<br>" % (key,os.environ[key])
+    envs = envs + "%s: %s<br>" % (key,os.environ[key])
 
   return envs
 

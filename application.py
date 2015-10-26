@@ -11,9 +11,9 @@ def hello_world():
 
 @application.route('/env')
 def env():
-  envs = "Environments: \n"
+  envs = "Environments: <br>"
   for key in os.environ.keys():
-    envs = envs + "%20s %s\n" % (key,os.environ[key])
+    envs = envs + "%s -- %s<br>" % (key,os.environ[key])
 
   return envs
 

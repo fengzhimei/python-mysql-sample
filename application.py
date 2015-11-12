@@ -2,6 +2,11 @@ import os
 import flask
 import MySQLdb
 
+from qiniu import Auth
+from qiniu import put_file
+
+import qiniu.config
+
 application = flask.Flask(__name__)
 application.debug = True
 
@@ -23,6 +28,28 @@ def score():
   storage.populate()
   score = storage.score()
   return "Hello world, %d!" % score
+
+@application.route('/upload')
+def upload():
+  access_key = 'RzW0eOSQyuGSqqxAC_RBsyIO3E6q1yi0QhyH033i'
+  secret_key = 'EaVes45LAJKd3qzYOn06VTto3f4e8HsFAjwpAQsW‘
+  bucket_name = 'gftest'
+  q = Auth(access_key, secret_key)
+
+  # 上传策略仅指定空间名和上传后的文件名，其他参数仅为默认值
+  token = q.upload_token(bucket_name, key)
+
+  # 上传策略除空间名和上传后的文件名外，指定上传凭证有效期为7200s
+  # callcakurl为"http://callback.do"，
+  # callbackBody为原始文件名和文件Etag值
+
+  localfile = __file__
+  key = 'test_file'
+  mime_type = "text/plain"
+  params = {'x:a': 'a'}
+  ret, info = put_file(token, key, localfile, mime_type=mime_type, check_crc=True)
+  print(info)
+  return info
 
 class Storage():
   def __init__(self):

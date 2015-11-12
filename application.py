@@ -34,7 +34,7 @@ def upload():
   access_key = 'RzW0eOSQyuGSqqxAC_RBsyIO3E6q1yi0QhyH033i'
   secret_key = 'EaVes45LAJKd3qzYOn06VTto3f4e8HsFAjwpAQsW'
   bucket_name = 'gftest'
-  localfile = __file__
+  localfile = '/usr/src/app/a.pptx'
   key = 'test_file'
   mime_type = "text/plain"
   params = {'x:a': 'a'}

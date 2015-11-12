@@ -6,6 +6,9 @@ COPY . /usr/src/app
 
 RUN pip install -r requirements.txt
 
+RUN apt-get update
+RUN apt-get install -y ifstat 
+
 EXPOSE 3000
 
 CMD [ "python","application.py"]

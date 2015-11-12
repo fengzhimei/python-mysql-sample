@@ -32,7 +32,7 @@ def score():
 @application.route('/upload')
 def upload():
   access_key = 'RzW0eOSQyuGSqqxAC_RBsyIO3E6q1yi0QhyH033i'
-  secret_key = 'EaVes45LAJKd3qzYOn06VTto3f4e8HsFAjwpAQsW‘
+  secret_key = 'EaVes45LAJKd3qzYOn06VTto3f4e8HsFAjwpAQsW'
   bucket_name = 'gftest'
   q = Auth(access_key, secret_key)
 

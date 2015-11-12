@@ -34,14 +34,14 @@ def upload():
   access_key = 'RzW0eOSQyuGSqqxAC_RBsyIO3E6q1yi0QhyH033i'
   secret_key = 'EaVes45LAJKd3qzYOn06VTto3f4e8HsFAjwpAQsW'
   bucket_name = 'gftest'
-  q = Auth(access_key, secret_key)
-
-  token = q.upload_token(bucket_name, key)
-
   localfile = __file__
   key = 'test_file'
   mime_type = "text/plain"
   params = {'x:a': 'a'}
+  q = Auth(access_key, secret_key)
+
+  token = q.upload_token(bucket_name, key)
+
   ret, info = put_file(token, key, localfile, mime_type=mime_type, check_crc=True)
   print(info)
   return info

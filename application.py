@@ -7,7 +7,7 @@ application.debug = True
 
 @application.route('/')
 def hello_world():
-  return "Hello World CMBtestpushbu!"
+  return "Hello World CMBtestpush!"
 
 @application.route('/env')
 def env():

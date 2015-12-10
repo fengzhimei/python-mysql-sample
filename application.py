@@ -1,13 +1,14 @@
 import os
 import flask
 import MySQLdb
+from flask import request
 
 application = flask.Flask(__name__)
 application.debug = True
 
 @application.route('/')
 def hello_world():
-  return "Hello World CMBtestpush!"
+  return "Hello World %s:%s!" % (request.headers.get('X-Forwarded-Proto'),request.headers.get('X-Forwarded-For'))
 
 @application.route('/env')
 def env():

@@ -8,7 +8,7 @@ application.debug = True
 
 @application.route('/')
 def hello_world():
-  return "Hello World %s:%s!" % (request.headers.get('X-Forwarded-Proto'),request.headers.get('X-Forwarded-For'))
+  return "Hello World!" % (request.headers.get('X-Forwarded-Proto'),request.headers.get('X-Forwarded-For'))
 
 @application.route('/env')
 def env():
@@ -17,6 +17,14 @@ def env():
     envs = envs + "%s: %s<br>" % (key,os.environ[key])
 
   return envs
+
+@application.route('/header')
+def header():
+  headers = "HTTP Headers: <br>"
+  for h in request.headers.keys():
+    headers = headers + "%s: %s<br>" % (h,request.headers.get(h))
+
+  return headers
 
 @application.route('/score')
 def score():

@@ -8,7 +8,7 @@ application.debug = True
 
 @application.route('/')
 def hello_world():
-  return "Hello World!" % (request.headers.get('X-Forwarded-Proto'),request.headers.get('X-Forwarded-For'))
+  return "Hello World!"
 
 @application.route('/env')
 def env():

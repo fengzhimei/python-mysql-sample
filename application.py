@@ -8,7 +8,7 @@ application.debug = True
 
 @application.route('/')
 def hello_world():
-  return "Hello World Carelinker!"
+  return "Hello World Chexiang!"
 
 @application.route('/env')
 def env():

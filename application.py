@@ -8,7 +8,7 @@ application.debug = True
 
 @application.route('/')
 def hello_world():
-  return "Hello World!"
+  return "Hello World DaoCloud!"
 
 @application.route('/env')
 def env():
